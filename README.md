@@ -1,6 +1,6 @@
 # 🏦 Financial FD-Bot (Gemma-RAG)
 
-A local, privacy-first Retrieval-Augmented Generation (RAG) assistant designed to answer questions about Fixed Deposit (FD) advisory reports. Powered by **Gemma 3 Flash**, **Docling**, and **FAISS**.
+A local, privacy-first Retrieval-Augmented Generation (RAG) assistant designed to answer questions about Fixed Deposit (FD) advisory reports. Powered by **Gemma 4 e2b**, **Docling**, and **FAISS**.
 
 ## 🚀 Features
 
@@ -11,7 +11,7 @@ A local, privacy-first Retrieval-Augmented Generation (RAG) assistant designed t
 
 ## 🛠️ Tech Stack
 
-- **LLM:** Gemma 3 Flash (via Ollama)
+- **LLM:** Gemma 4 e2b (via Ollama)
 - **Orchestration:** LangChain
 - **Vector DB:** FAISS
 - **Embeddings:** HuggingFace (`sentence-transformers`)
@@ -25,8 +25,8 @@ A local, privacy-first Retrieval-Augmented Generation (RAG) assistant designed t
 ├── vector_store/       # Local FAISS index
 ├── src/
 │   ├── utils.py        # Configuration & Constants
-│   ├── phase1_ingest.py # Document -> Vector Store
-│   ├── phase2_rag.py   # Search & LLM Logic
+│   ├── ingest.py # Document -> Vector Store
+│   ├── rag.py   # Search & LLM Logic
 │   └── app.py          # Streamlit Chat UI
 └── pyproject.toml      # Managed by uv
 ```
