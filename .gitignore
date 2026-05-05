@@ -1,0 +1,29 @@
+# --- Python / Environment ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.python-version
+.env
+
+# --- uv (Python Package Manager) ---
+.uv/
+uv.lock
+
+# --- Local Data & Vector Store ---
+# We ignore the raw and processed data to keep the repo lightweight
+# and to prevent leaking private financial documents.
+data/*
+!data/.gitkeep
+processed/*
+!processed/.gitkeep
+
+# Ignore the actual FAISS index (binary vectors)
+vector_store/*
+!vector_store/.gitkeep
+
+# --- OS / Misc ---
+.DS_Store
+.idea/
+.vscode/
+*.log
