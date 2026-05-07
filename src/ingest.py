@@ -6,7 +6,7 @@ from langchain_community.vectorstores import FAISS
 from utils import Config
 
 
-def step1_convert_to_markdown(docx_path):
+def convert_to_markdown(docx_path):
     """Uses Docling to extract structured text and tables."""
     print(f"....Converting {docx_path} to Markdown...")
     converter = DocumentConverter()
@@ -19,7 +19,7 @@ def step1_convert_to_markdown(docx_path):
     return md_content
 
 
-def step2_semantic_chunking(md_content):
+def semantic_chunking(md_content):
     """Splits text by headers to keep financial sections intact."""
     print("....Performing Semantic Chunking...")
     headers_to_split_on = [
@@ -34,7 +34,7 @@ def step2_semantic_chunking(md_content):
     return chunks
 
 
-def step3_create_vector_index(chunks):
+def create_vector_index(chunks):
     """Converts chunks to vectors and saves them locally."""
     print(f"....Building FAISS Index using {Config.EMBEDDING_MODEL}...")
 
@@ -52,9 +52,9 @@ def run_pipeline(filename):
         print(f"....Error: Place your file in {Config.DATA_DIR} first!")
         return
 
-    md_text = step1_convert_to_markdown(docx_input)
-    chunks = step2_semantic_chunking(md_text)
-    step3_create_vector_index(chunks)
+    md_text = convert_to_markdown(docx_input)
+    chunks = semantic_chunking(md_text)
+    create_vector_index(chunks)
     print("\n.... Ingest complete")
 
 
